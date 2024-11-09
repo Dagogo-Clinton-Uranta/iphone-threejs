@@ -1,5 +1,38 @@
+import {useGSAP} from '@gsap/react'
+import {ScrollTrigger} from "gsap/all"
+import gsap from 'gsap';
+
+gsap.registerPlugin(ScrollTrigger)
+
+
 const GsapStagger = () => {
   // TODO: Implement the gsap.stagger() method
+
+  useGSAP(()=>{
+  
+    gsap.to('.stagger-box',{
+      y: 250,
+      
+      borderRadius:'100%',
+      rotation:360,//in degrees
+      duration:2, // in seconds
+      repeat:-1,
+      ease:'backIn.inOut',
+      //stagger: 0.5 --> stagger can also be an object
+      stagger:{
+        amount:1.5,
+        grid:[2,1],
+        axis:'y',
+        ease:'circ.inOut',
+        from:"end"   //<--- really interesting feature here , you can make the animation start from, center or end, of the given classes
+      } 
+
+     
+    })
+
+  },[]);
+
+
 
   return (
     <main>

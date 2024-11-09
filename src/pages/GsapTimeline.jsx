@@ -1,5 +1,59 @@
+import gsap from "gsap";
+import {useGSAP} from '@gsap/react'
+
 const GsapTimeline = () => {
   // TODO: Implement the gsap timeline
+  // GSAP TIMELINE IS A SEQUENCING TOOL FOR TO FROM AND TO FROM..HOW THOUGH
+
+  const timeline = gsap.timeline({
+
+     repeat:-1,
+     repeatDelay:1,
+     yoyo:true
+
+   });
+
+
+  
+    // TODO: Implement the gsap.from() method
+    useGSAP(()=>{
+  
+      timeline.to('#yellow-box',{
+        x: 250,
+        
+        borderRadius:'100%',
+        rotation:360,//in degrees
+        duration:2, // in seconds
+        ease:'backIn.inOut'
+       
+      })
+
+
+      timeline.to('#yellow-box',{
+        x: 500,
+       
+        yoyo:true,
+        rotation:360,//in degrees
+        borderRadius:'8px',
+        duration:2, // in seconds
+        ease:'backIn.inOut'
+       
+      })
+
+      timeline.to('#yellow-box',{
+        y: 250,
+      
+        rotation:360,//in degrees
+        borderRadius:'100%',
+        duration:2, // in seconds
+        ease:'backIn.inOut'
+       
+      })
+  
+    },[]);
+
+
+
 
   return (
     <main>
@@ -35,7 +89,14 @@ const GsapTimeline = () => {
       </p>
 
       <div className="mt-20 space-y-10">
-        <button onClick={() => {}}>Play/Pause</button>
+        <button onClick={() => {
+          if (timeline.paused()){
+           timeline.play()
+          }else{
+
+            timeline.pause()
+          }
+        }}>Play/Pause</button>
 
         <div id="yellow-box" className="w-20 h-20 bg-yellow-500 rounded-lg" />
       </div>

@@ -1,5 +1,38 @@
+import {useGSAP} from '@gsap/react'
+import gsap from 'gsap';
+
+
+
 const GsapFromTo = () => {
   // TODO: Implement the gsap.fromTo() method
+  //its useful for when you want to modify the start and the end of an animation
+  
+
+  useGSAP(()=>{
+
+    gsap.fromTo('#red-box',
+     
+    {
+      x: 0,
+      rotation:0,//in degrees
+      borderRadius:'0%',
+     
+    },
+    
+    {
+      x: 250,
+      repeat:-1,
+      yoyo:true,
+      borderRadius:'100%',
+      rotation:360,//in degrees
+      duration:2, // in seconds
+      ease:'power1.inOut'
+     
+    })
+
+  },[]);
+
+
 
   return (
     <main>

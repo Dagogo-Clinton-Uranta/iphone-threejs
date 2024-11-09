@@ -10,11 +10,16 @@ import {
   GsapTo,
   Home,
 } from "./pages";
+import Home1 from "./pages/Home1";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Highlights from "./components/Highlights";
+import Model from "./components/Model";
 
 const App = () => {
   return (
-    <div className="bg-black min-h-screen w-full">
-      <Router>
+    <div className="bg-black ">
+     {/* <Router>
         <Routes>
           <Route path="/gsapto" element={<GsapTo />} />
           <Route path="/gsapfrom" element={<GsapFrom />} />
@@ -23,9 +28,19 @@ const App = () => {
           <Route path="/gsapstagger" element={<GsapStagger />} />
           <Route path="/gsapscrolltrigger" element={<GsapScrollTrigger />} />
           <Route path="/gsaptext" element={<GsapText />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home1 />} />
         </Routes>
       </Router>
+  */}
+
+  <main className="bg-black">
+    <Navbar/>
+    <Hero/> 
+    <Highlights/>
+    <Model/>
+  </main>
+
+
     </div>
   );
 };
