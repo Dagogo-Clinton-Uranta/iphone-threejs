@@ -47,8 +47,8 @@ const Features = () => {
         
         <div className='screen-max-width'>
           <div classname='mb-12 w-full'>
-            <h1 id="features_title" classNam="section-heading">
-              Explore the full Story
+            <h1 id="features_title" className="section-heading">
+              Explore the Full Story
             </h1> 
           </div>
 
