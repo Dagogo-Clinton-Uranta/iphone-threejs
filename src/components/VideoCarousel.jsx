@@ -1,11 +1,17 @@
-import React, { useEffect, useRef } from 'react'
-import highlightsSlides from '../contants'
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
+import { useEffect, useRef, useState } from "react";
+
+import { highlightsSlides } from "../constants";
+import { pauseImg, playImg, replayImg } from "../utils";
 
 const VideoCarousel = () => {
   const videoRef = useRef([])
    const videoSpanRef = useRef([])
     const videoDivRef = useRef([])
-
+    const [loadedData, setLoadedData] = useState([]);
 const [video,setVideo] = useState({
   isEnd:false,
   startPlay:false,
@@ -49,7 +55,7 @@ if(loadedData.length > 3){
   if(!isPlaying){
  videoRef.current[videoId].pause()
  }else{
-  startPlay && videoRef.current[videoId].play()
+  startPlay && (videoRef.current[videoId] && videoRef.current[videoId].play())
  }
 
 
@@ -117,7 +123,7 @@ useEffect(()=>{
     }
 
     const animUpdate = () => {
-      anim.progress(videoRef.current[videoId].currentTime/
+      anim.progress((videoRef.current[videoId] &&videoRef.current[videoId].currentTime) /
         highlightsSlides[videoId].videoDuration
       )
     }
@@ -175,8 +181,8 @@ const handleProcess = (type,i) => {
             <div className="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
                <video id="video"  playsInline={true} preload="auto" muted
                className={`${
-                list.id === 2 && 'translate-x-44'
-               }pointer-events-none`
+                list.id === 2 && 'translate-x-44'}
+               pointer-events-none`
               }
                ref={(el)=>(videoRef.current[i] = el)} 
               

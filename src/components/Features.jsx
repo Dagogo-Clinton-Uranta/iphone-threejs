@@ -1,18 +1,42 @@
+import { useGSAP } from '@gsap/react'
 import React,{useRef} from 'react'
 import {animateWithGsap} from '../utils/animations'
+import { explore1Img, explore2Img, exploreVideo } from '../utils';
+import gsap from 'gsap';
 
 const Features = () => {
     const videoRef= useRef()
  
     useGSAP(()=>{
 
-      animateWithGsap('#features_title') //you must indicate whether your target is an id or a class with # or .
+      animateWithGsap('#features_title',{y:0,opacity:1}) //you must indicate whether your target is an id or a class with # or .
+
+     
+      gsap.to('#exploreVideo',{
+       // ...animationProps,
+        scrollTrigger:{
+            trigger:'#exploreVideo',
+            //1.) toggle actions controls the animation in 4 different positions
+            //2.) when you scroll in 
+            //3.)when you come back
+            //4.)when you scroll down
+            //when you scroll up once again
+            toggleActions:'play pause restart reverse',
+            start: 'bottom -10%', //when the trigger is 85% from the top of  the viewport, it will activate
+          
+        },
+        onComplete:()=>{
+          videoRef.current.play();
+        }
+
+    })
+
 
       animateWithGsap('#exploreVideo',{y:0,opacity:1})
 
       animateWithGsap('.g_grow',{y:0,scale:1,opacity:1,ease:"power1"},{scrub: 5.5} )
 
-      animateWithGsap('.g_text',{y:0,,opacity:1,ease:"power2.inOut",duration:1} )
+      animateWithGsap('.g_text',{y:0,opacity:1,ease:"power2.inOut",duration:1} )
 
     },[]);
 

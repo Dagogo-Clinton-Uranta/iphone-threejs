@@ -3,29 +3,33 @@ import {useState,useEffect} from 'react'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import VideoCarousel from './VideoCarousel'
+import { rightImg, watchImg } from "../utils"
 
-useGSAP(()=>{
-
-  gsap.to( '#title',{
-  opacity:1,
-  //delay:2.5  //in seconds
-  y:0
-  })
-
-
-  gsap.to( '.link',{
-   opacity:1,
-   y:0,
-   //delay:2.5 //in seconds
-   duration:1,
-   stagger:0.25
-   })
-
- },[])
 
 
 
 const Highlights = () => {
+
+  useGSAP(()=>{
+
+    gsap.to( '#title',{
+    opacity:1,
+    //delay:2.5  //in seconds
+    y:0
+    })
+  
+  
+    gsap.to( '.link',{
+     opacity:1,
+     y:0,
+     //delay:2.5 //in seconds
+     duration:1,
+     stagger:0.25
+     })
+  
+   },[])
+
+
   return (
     <section id= "highlights" className="w-screen overflow-hidden h-full common-padding bg-zinc">
       

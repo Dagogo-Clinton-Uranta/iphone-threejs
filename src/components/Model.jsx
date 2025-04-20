@@ -1,8 +1,16 @@
 import React, { useRef } from 'react'
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import {yellowImg} from "../utils";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import { Canvas } from "@react-three/fiber";
+
 import {View} from "@react-three/drei"
-import {animateWithGsapTimeline} from 'src/utils/animations'
+import {animateWithGsapTimeline} from '/src/utils/animations'
+import ModelView from "./ModelView";
+
+import { models, sizes } from "../constants";
 
 import * as THREE from 'three'
 
@@ -10,7 +18,7 @@ const Model = () => {
 
     const [size,setSize] = useState('small')
 
-    const [model,setmodel] = useState( {
+    const [model,setModel] = useState( {
         title:'iPhone 15 Pro in Natural Titanium',
         color:['#8F8A81','#FFE7B9','#6F6C64'],
         img:yellowImg,
@@ -28,7 +36,7 @@ const Model = () => {
    const [smallRotation,setSmallRotation] = useState(0)
    const [largeRotation,setLargeRotation] = useState(0)
 
-   const tl = gsap.timemline();
+   const tl = gsap.timeline();
 
    useEffect(()=>{
    
@@ -102,10 +110,7 @@ const Model = () => {
               <ul className="color-container">
                 {models.map((item,index)=>{
                   
-                  <li key={li} className="w-6 h-6 rounded-full mx-2 cursor-pointer" 
-                  style={{backgroundColor:item.color[0] }}
-                  onClick={()=> setModel(item)}
-                  >
+                  <li key={index} className="w-6 h-6 rounded-full mx-2 cursor-pointer"  style={{backgroundColor:item.color[0] }} onClick={()=> setModel(item)}>
                   
                   </li>
 
