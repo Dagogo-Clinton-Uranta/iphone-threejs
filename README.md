@@ -1,8 +1,11 @@
-# React + Vite
+# An Iphone Replica Website using GSAP and Three JS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was done to hone my skills using animation and 3D modelling libraries such as GSAP and Three JS
 
-Currently, two official plugins are available:
+It involved the use of GSAP methods such as GSAP.From() , GSAP.To(), GSAP.scrollTrigger() and GSAP.Timeline()
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+PerspectiveCamera, Ligths and OrbitControls from 'react-three-drei'  were also used in this project to make the 3D model come to life!
+
+View it live at --> https://iphone-threejs-delta.vercel.app/
+
+
